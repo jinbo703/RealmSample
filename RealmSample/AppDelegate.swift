@@ -2,11 +2,15 @@
 //  AppDelegate.swift
 //  RealmSample
 //
-//  Created by PAC on 11/15/17.
-//  Copyright © 2017 PAC. All rights reserved.
+//  Created by John Nik on 11/15/17.
+//  Copyright © 2017 johnik703. All rights reserved.
 //
 
 import UIKit
+import Firebase
+import RealmSwift
+
+var uiRealm = try! Realm()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        FirebaseApp.configure()
+        
+        window = UIWindow()
+        window?.makeKeyAndVisible()
+        
+        let navController = UINavigationController(rootViewController: ViewController())
+        window?.rootViewController = navController
+        
         return true
     }
 
